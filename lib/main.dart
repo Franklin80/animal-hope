@@ -36,14 +36,21 @@ class _MyHomePageState extends State<MyHomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  static const List<Widget> _widgetOptions = [
+  static List<Widget> _widgetOptions = [
     Text(
       'The Shelter',
       style: optionStyle,
     ),
-    Text(
-      'Our Pets',
-      style: optionStyle,
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Image.asset('assets/images/cats/cat_1_small.jpg', fit: BoxFit.cover),
+        Text(
+          'Our Pets',
+          textAlign: TextAlign.center,
+          style: optionStyle,
+        ),
+      ],
     ),
     Text(
       'Emergency Pets',
