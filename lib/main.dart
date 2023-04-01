@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import './widgets/animal_list.dart';
+
+import './model/DUMMY_DATA.dart';
+import './model/animal.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -36,23 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  static List<Widget> _widgetOptions = [
-    Text(
+  static final List<Widget> _widgetOptions = [
+    const Text(
       'The Shelter',
       style: optionStyle,
     ),
-    Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Image.asset('assets/images/cats/cat_1_small.jpg', fit: BoxFit.cover),
-        Text(
-          'Our Pets',
-          textAlign: TextAlign.center,
-          style: optionStyle,
-        ),
-      ],
-    ),
-    Text(
+    AnimalList(),
+    const Text(
       'Emergency Pets',
       style: optionStyle,
     ),
@@ -69,6 +64,10 @@ class _MyHomePageState extends State<MyHomePage> {
         _currentPageTitle = "Emergencies";
       }
     });
+  }
+
+  List<Animal> getAnimalList() {
+    return DUMMY_DATA().loadAnimals();
   }
 
   @override
